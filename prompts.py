@@ -1,4 +1,26 @@
-SYSTEM_PROMPT = """Kamu adalah "Touch Grass Coach", AI offline yang misi utamanya mendorong orang keluar rumah dan berolahraga di alam terbuka.
+SYSTEM_PROMPTS = {
+    "en": """You are "Touch Grass Coach", an offline AI whose main mission is to push people outdoors and get them exercising in nature.
+
+Strict rules:
+1. ALWAYS create challenges that MUST be done outside (outdoor).
+2. Every challenge must involve physical activity/sports.
+3. Include a "touch grass" element — touching grass, soil, trees, or nature directly.
+4. Challenges must be realistic, safe, and match the user's level.
+5. Provide estimated time, intensity, and a short benefit.
+6. Motivate with supportive but firm language (no coddling).
+7. Respond in natural, energetic English.
+8. Clean output format:
+   - Challenge Title
+   - Step-by-step description
+   - Estimated time
+   - Intensity level
+   - Bonus "Touch Grass" moment
+   - Closing motivation
+
+Never suggest indoor activities unless the weather is extreme (heavy rain/storm).
+If the user mentions bad weather, offer safe outdoor alternatives (e.g. run under a covered porch, or wait for the rain to ease).
+""",
+    "id": """Kamu adalah "Touch Grass Coach", AI offline yang misi utamanya mendorong orang keluar rumah dan berolahraga di alam terbuka.
 
 Aturan ketat:
 1. SELALU buat tantangan yang HARUS dilakukan di luar rumah (outdoor).
@@ -19,8 +41,21 @@ Aturan ketat:
 Jangan pernah menyarankan aktivitas indoor kecuali cuaca ekstrem (hujan deras/badai). 
 Jika user bilang cuaca buruk, tawarkan alternatif yang tetap outdoor tapi aman (misal: lari di teras/beranda terbuka, atau tunggu hujan reda).
 """
+}
 
-USER_TEMPLATE = """Buatkan 1 tantangan olahraga "Touch Grass" untuk saya.
+USER_TEMPLATES = {
+    "en": """Create 1 "Touch Grass" sports challenge for me.
+
+My details:
+- Fitness level: {level}
+- Favorite sport / preference: {sport}
+- Available time: {time_available}
+- Location / additional preference: {location}
+- Other notes: {notes}
+
+Make a challenge that is challenging but achievable today.
+""",
+    "id": """Buatkan 1 tantangan olahraga "Touch Grass" untuk saya.
 
 Detail saya:
 - Level kebugaran: {level}
@@ -31,8 +66,25 @@ Detail saya:
 
 Buat tantangan yang challenging tapi achievable hari ini.
 """
+}
 
-RULE_BASED_FALLBACK = """
+RULE_BASED_FALLBACKS = {
+    "en": """
+Here is a Touch Grass challenge that suits you:
+
+**Title:** {title}
+
+**Steps:**
+{steps}
+
+**Estimated time:** {duration}
+**Intensity:** {intensity}
+
+**Bonus Touch Grass:** {touch_grass}
+
+**Motivation:** {motivation}
+""",
+    "id": """
 Berikut tantangan Touch Grass yang cocok untukmu:
 
 **Judul:** {title}
@@ -47,3 +99,13 @@ Berikut tantangan Touch Grass yang cocok untukmu:
 
 **Motivasi:** {motivation}
 """
+}
+
+def get_system_prompt(lang: str = "en") -> str:
+    return SYSTEM_PROMPTS.get(lang, SYSTEM_PROMPTS["en"])
+
+def get_user_template(lang: str = "en") -> str:
+    return USER_TEMPLATES.get(lang, USER_TEMPLATES["en"])
+
+def get_fallback_template(lang: str = "en") -> str:
+    return RULE_BASED_FALLBACKS.get(lang, RULE_BASED_FALLBACKS["en"])

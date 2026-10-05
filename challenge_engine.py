@@ -1,6 +1,5 @@
 import random
-from typing import Optional
-from prompts import SYSTEM_PROMPT, USER_TEMPLATE, RULE_BASED_FALLBACK
+from prompts import get_system_prompt, get_user_template, get_fallback_template
 from challenges_db import get_matching_challenges
 
 try:
@@ -16,17 +15,18 @@ def generate_with_ollama(
     time_available: str,
     location: str,
     notes: str,
+    lang: str = "en",
     model: str = "llama3.2"
 ) -> str:
-    """Generate challenge menggunakan Ollama lokal."""
+    """Generate challenge using local Ollama."""
     if not OLLAMA_AVAILABLE:
-        raise RuntimeError("Ollama package tidak terinstall.")
+        raise RuntimeError("Ollama package is not installed.")
 
-    user_prompt = USER_TEMPLATE.format(
+    user_prompt = get_user_template(lang).format(
         level=level,
         sport=sport,
-        time_available=time_available or "tidak ditentukan",
-        location=location or "tidak ditentukan",
+        time_available=time_available or ("not specified" if lang == "en" else "tidak ditentukan"),
+        location=location or ("not specified" if lang == "en" else "tidak ditentukan"),
         notes=notes or "-"
     )
 
@@ -34,7 +34,7 @@ def generate_with_ollama(
         response = ollama.chat(
             model=model,
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "system", "content": get_system_prompt(lang)},
                 {"role": "user", "content": user_prompt}
             ],
             options={
@@ -44,15 +44,16 @@ def generate_with_ollama(
         )
         return response["message"]["content"]
     except Exception as e:
-        return f"⚠️ Gagal memanggil Ollama: {str(e)}\n\nMenggunakan mode rule-based..."
+        msg = f"⚠️ Failed to call Ollama: {str(e)}\n\nFalling back to rule-based mode..." if lang == "en" else f"⚠️ Gagal memanggil Ollama: {str(e)}\n\nMenggunakan mode rule-based..."
+        return msg
 
 
-def generate_rule_based(level: str, sport: str) -> str:
-    """Generate dari database internal (100% offline, tanpa model)."""
-    matches = get_matching_challenges(level, sport)
+def generate_rule_based(level: str, sport: str, lang: str = "en") -> str:
+    """Generate from internal database (100% offline, no model)."""
+    matches = get_matching_challenges(level, sport, lang)
     challenge = random.choice(matches)
 
-    return RULE_BASED_FALLBACK.format(
+    return get_fallback_template(lang).format(
         title=challenge["title"],
         steps=challenge["steps"],
         duration=challenge["duration"],
@@ -63,37 +64,41 @@ def generate_rule_based(level: str, sport: str) -> str:
 
 
 def generate_challenge(
-    level: str = "Pemula",
-    sport: str = "umum",
+    level: str = "Beginner",
+    sport: str = "general",
     time_available: str = "",
     location: str = "",
     notes: str = "",
+    lang: str = "en",
     use_ollama: bool = True,
     model: str = "llama3.2"
 ) -> str:
     """
-    Main function untuk generate tantangan.
-    Prioritas: Ollama jika tersedia & diminta, else rule-based.
+    Main function to generate a challenge.
+    Priority: Ollama if available & requested, else rule-based.
     """
+    lang = lang.lower().strip()
+    if lang not in ("en", "id"):
+        lang = "en"
+
     if use_ollama and OLLAMA_AVAILABLE:
         try:
-            # Cek apakah model tersedia
             models = ollama.list()
             available = [m["name"] for m in models.get("models", [])]
             if not any(model in m for m in available):
-                # Coba model default lain
                 for fallback in ["llama3.2", "phi3", "gemma2:2b", "qwen2.5:3b", "llama3.1"]:
                     if any(fallback in m for m in available):
                         model = fallback
                         break
                 else:
-                    return generate_rule_based(level, sport) + "\n\n_(Ollama terdeteksi tapi tidak ada model yang cocok. Pull model dulu: `ollama pull llama3.2`)_"
+                    tip = "_(Ollama detected but no suitable model found. Pull a model first: `ollama pull llama3.2`)_" if lang == "en" else "_(Ollama terdeteksi tapi tidak ada model yang cocok. Pull model dulu: `ollama pull llama3.2`)_"
+                    return generate_rule_based(level, sport, lang) + "\n\n" + tip
 
-            result = generate_with_ollama(level, sport, time_available, location, notes, model)
+            result = generate_with_ollama(level, sport, time_available, location, notes, lang, model)
             if result.startswith("⚠️"):
-                return result + "\n\n" + generate_rule_based(level, sport)
+                return result + "\n\n" + generate_rule_based(level, sport, lang)
             return result
         except Exception:
-            return generate_rule_based(level, sport)
-    
-    return generate_rule_based(level, sport)
+            return generate_rule_based(level, sport, lang)
+
+    return generate_rule_based(level, sport, lang)
