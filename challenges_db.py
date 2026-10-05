@@ -1,6 +1,6 @@
 """
 Rule-based challenge database for offline mode (no LLM).
-Supports multiple languages.
+Supports multiple languages and many sports.
 """
 
 CHALLENGES = {
@@ -32,6 +32,33 @@ CHALLENGES = {
                 "intensity": "Low-Medium",
                 "touch_grass": "Lie on the grass at the end of the session.",
                 "motivation": "No gym needed. The grass is your best gym today."
+            },
+            {
+                "title": "Outdoor Yoga Flow",
+                "sport": ["yoga", "stretching", "general"],
+                "steps": "1. Find a quiet grassy spot or park.\n2. Do a simple 15-minute flow: mountain pose, forward fold, downward dog, warrior I & II, child's pose.\n3. Hold each pose 5-8 breaths.\n4. Finish by sitting or lying on the grass in savasana for 2 minutes.",
+                "duration": "20-25 minutes",
+                "intensity": "Low",
+                "touch_grass": "Savasana directly on the grass.",
+                "motivation": "Breathe with the earth. Your body will thank you."
+            },
+            {
+                "title": "Jump Rope Outside",
+                "sport": ["jump rope", "skipping", "general"],
+                "steps": "1. Take your jump rope to a park or open area.\n2. Jump for 8-10 minutes total (intervals of 45-60 seconds with short rests).\n3. Between sets, walk on the grass and touch it.\n4. Finish with 20 squats on the grass.",
+                "duration": "15-20 minutes",
+                "intensity": "Low-Medium",
+                "touch_grass": "Walk and touch grass between jump rope sets.",
+                "motivation": "Simple tools, big results. Get jumping outside!"
+            },
+            {
+                "title": "Frisbee Fun",
+                "sport": ["frisbee", "ultimate", "general"],
+                "steps": "1. Go to an open field or park with a frisbee.\n2. Throw and catch for 15-20 minutes (solo against a wall/tree or with a friend).\n3. Every 5 minutes, do 10 lunges on the grass.\n4. End by sitting on the grass and reflecting.",
+                "duration": "20-25 minutes",
+                "intensity": "Low",
+                "touch_grass": "Lunges and final sit on the grass.",
+                "motivation": "Play is the highest form of research. Go throw!"
             }
         ],
         "intermediate": [
@@ -70,12 +97,48 @@ CHALLENGES = {
                 "intensity": "Medium-High",
                 "touch_grass": "All movements performed on the grass.",
                 "motivation": "No gym machine can beat an open field."
+            },
+            {
+                "title": "Outdoor Volleyball Rally",
+                "sport": ["volleyball"],
+                "steps": "1. Find a beach or grass volleyball court / open area.\n2. Play or practice serves, bumps, and sets for 25-35 minutes.\n3. Between rotations, do 10 bodyweight squats on the grass.\n4. Cool down by stretching on the grass.",
+                "duration": "30-40 minutes",
+                "intensity": "Medium",
+                "touch_grass": "Squats and stretching on the grass.",
+                "motivation": "Team or solo — the sand/grass is calling."
+            },
+            {
+                "title": "Tennis / Badminton Outdoor",
+                "sport": ["tennis", "badminton"],
+                "steps": "1. Go to an outdoor tennis or badminton court.\n2. Play or practice for 25-35 minutes.\n3. Every time you lose a point, do 5 push-ups or squats on the grass nearby.\n4. Finish with a short walk touching the grass.",
+                "duration": "30-40 minutes",
+                "intensity": "Medium",
+                "touch_grass": "Push-ups/squats and final walk on grass.",
+                "motivation": "Racket sports feel better under the open sky."
+            },
+            {
+                "title": "Skate Session + Nature",
+                "sport": ["skateboard", "skateboarding", "skating"],
+                "steps": "1. Skate for 25-35 minutes at a park or open area.\n2. Practice tricks or just cruise.\n3. Take 2-3 breaks to step on grass, touch it, and do 15 squats.\n4. End the session sitting on the grass.",
+                "duration": "30-40 minutes",
+                "intensity": "Medium",
+                "touch_grass": "Breaks and final sit on the grass.",
+                "motivation": "Wheels and grass — balance both."
+            },
+            {
+                "title": "Trail Walk / Light Hike",
+                "sport": ["hiking", "trail", "walking"],
+                "steps": "1. Choose a local trail or nature path.\n2. Walk/hike for 40-50 minutes.\n3. Stop at 3 points to touch trees, rocks, or grass and take deep breaths.\n4. Finish with 1 minute of gratitude on the grass.",
+                "duration": "45-55 minutes",
+                "intensity": "Medium",
+                "touch_grass": "Touch nature at least 3 times + final gratitude.",
+                "motivation": "The trail is therapy. Lace up and go."
             }
         ],
         "advanced": [
             {
                 "title": "Long Run + Nature Connection",
-                "sport": ["running"],
+                "sport": ["running", "trail running"],
                 "steps": "1. Run 7-10 km on an outdoor route (park, trail, or green roads).\n2. Every 2 km, stop for 30 seconds, touch the grass/soil, and do 10 deep squats.\n3. In the last 2 km, increase the pace.\n4. After finishing, barefoot walk for 5 minutes on the grass if possible.",
                 "duration": "50-75 minutes",
                 "intensity": "High",
@@ -99,6 +162,42 @@ CHALLENGES = {
                 "intensity": "High",
                 "touch_grass": "Push-ups on the grass + cool down on the grass.",
                 "motivation": "The field is your second home. Play like there's no tomorrow."
+            },
+            {
+                "title": "Outdoor Swimming Session",
+                "sport": ["swimming", "open water"],
+                "steps": "1. Go to an outdoor pool, lake, or safe open water.\n2. Swim continuously or interval for 30-45 minutes.\n3. After swimming, walk barefoot on grass/sand for 5 minutes if available.\n4. Stretch and touch the ground/grass while cooling down.",
+                "duration": "40-55 minutes",
+                "intensity": "High",
+                "touch_grass": "Barefoot walk + ground contact after swimming.",
+                "motivation": "Water + earth. Perfect combination. Dive in!"
+            },
+            {
+                "title": "Climbing / Bouldering Outdoor",
+                "sport": ["climbing", "bouldering", "rock climbing"],
+                "steps": "1. Go to an outdoor climbing wall or natural boulder area.\n2. Climb for 40-60 minutes (focus on technique and attempts).\n3. Between climbs, stand on grass/soil, touch it, and shake out.\n4. Finish by sitting on the ground and reflecting on your sends.",
+                "duration": "45-65 minutes",
+                "intensity": "High",
+                "touch_grass": "Ground contact between climbs + final sit.",
+                "motivation": "Gravity is the best coach. Get vertical."
+            },
+            {
+                "title": "Parkour / Movement Flow",
+                "sport": ["parkour", "freerunning", "movement"],
+                "steps": "1. Find a park or urban outdoor area with obstacles.\n2. Practice vaults, precision jumps, rolls, and flow for 35-50 minutes.\n3. Keep connecting movements and use grass areas for soft landings.\n4. End with mobility work sitting/lying on the grass.",
+                "duration": "40-55 minutes",
+                "intensity": "High",
+                "touch_grass": "Soft landings and final mobility on grass.",
+                "motivation": "Move like water. The environment is your playground."
+            },
+            {
+                "title": "Martial Arts / Shadow Boxing Outdoor",
+                "sport": ["martial arts", "boxing", "muay thai", "kickboxing", "shadow boxing"],
+                "steps": "1. Find an open grassy or park area.\n2. Do 5-6 rounds of shadow boxing / technical drills (3 min on, 1 min rest).\n3. During rests, walk on the grass and touch the ground.\n4. Finish with core work and stretching on the grass.",
+                "duration": "35-45 minutes",
+                "intensity": "High",
+                "touch_grass": "Rest periods and final work on the grass.",
+                "motivation": "Train under the sky. Your spirit gets sharper outside."
             }
         ]
     },
@@ -130,6 +229,33 @@ CHALLENGES = {
                 "intensity": "Rendah-Sedang",
                 "touch_grass": "Berbaring di rumput di akhir sesi.",
                 "motivation": "Tidak perlu gym. Rumput adalah gym terbaikmu hari ini."
+            },
+            {
+                "title": "Yoga Outdoor Pemula",
+                "sport": ["yoga", "stretching", "umum", "general"],
+                "steps": "1. Cari tempat berumput yang tenang di taman.\n2. Lakukan flow sederhana 15 menit: mountain pose, forward fold, downward dog, warrior I & II, child's pose.\n3. Tahan setiap pose 5-8 napas.\n4. Akhiri dengan duduk atau berbaring di rumput (savasana) selama 2 menit.",
+                "duration": "20-25 menit",
+                "intensity": "Rendah",
+                "touch_grass": "Savasana langsung di atas rumput.",
+                "motivation": "Bernapas bersama bumi. Tubuhmu akan berterima kasih."
+            },
+            {
+                "title": "Lompat Tali Outdoor",
+                "sport": ["lompat tali", "jump rope", "skipping", "umum", "general"],
+                "steps": "1. Bawa lompat tali ke taman atau area terbuka.\n2. Lompat total 8-10 menit (interval 45-60 detik dengan istirahat singkat).\n3. Antar set, jalan di rumput dan sentuh rumput.\n4. Akhiri dengan 20 squat di rumput.",
+                "duration": "15-20 menit",
+                "intensity": "Rendah-Sedang",
+                "touch_grass": "Jalan dan sentuh rumput antar set lompat tali.",
+                "motivation": "Alat sederhana, hasil besar. Ayo lompat di luar!"
+            },
+            {
+                "title": "Main Frisbee",
+                "sport": ["frisbee", "ultimate", "umum", "general"],
+                "steps": "1. Pergi ke lapangan terbuka atau taman dengan frisbee.\n2. Lempar dan tangkap selama 15-20 menit (sendiri atau bersama teman).\n3. Setiap 5 menit, lakukan 10 lunge di rumput.\n4. Akhiri dengan duduk di rumput dan refleksi.",
+                "duration": "20-25 menit",
+                "intensity": "Rendah",
+                "touch_grass": "Lunge dan duduk akhir di rumput.",
+                "motivation": "Bermain adalah bentuk riset tertinggi. Ayo lempar!"
             }
         ],
         "intermediate": [
@@ -168,12 +294,48 @@ CHALLENGES = {
                 "intensity": "Sedang-Tinggi",
                 "touch_grass": "Semua gerakan dilakukan di atas rumput.",
                 "motivation": "Tidak ada mesin gym yang bisa mengalahkan lapangan terbuka."
+            },
+            {
+                "title": "Voli Outdoor",
+                "sport": ["voli", "volleyball"],
+                "steps": "1. Cari lapangan voli pantai/rumput atau area terbuka.\n2. Main atau latihan servis, receive, dan set selama 25-35 menit.\n3. Antar rotasi, lakukan 10 squat di rumput.\n4. Cool down dengan stretching di rumput.",
+                "duration": "30-40 menit",
+                "intensity": "Sedang",
+                "touch_grass": "Squat dan stretching di rumput.",
+                "motivation": "Tim atau solo — pasir/rumput sedang memanggil."
+            },
+            {
+                "title": "Tenis / Bulu Tangkis Outdoor",
+                "sport": ["tenis", "tennis", "badminton", "bulu tangkis"],
+                "steps": "1. Pergi ke lapangan tenis atau bulu tangkis outdoor.\n2. Main atau latihan selama 25-35 menit.\n3. Setiap kalah poin, lakukan 5 push-up atau squat di rumput sekitar.\n4. Akhiri dengan jalan singkat sambil menyentuh rumput.",
+                "duration": "30-40 menit",
+                "intensity": "Sedang",
+                "touch_grass": "Push-up/squat dan jalan akhir di rumput.",
+                "motivation": "Olahraga raket lebih asyik di bawah langit terbuka."
+            },
+            {
+                "title": "Skate Session + Alam",
+                "sport": ["skateboard", "skateboarding", "skating", "skate"],
+                "steps": "1. Skate selama 25-35 menit di taman atau area terbuka.\n2. Latihan trik atau sekadar cruise.\n3. Ambil 2-3 istirahat untuk berdiri di rumput, sentuh, dan lakukan 15 squat.\n4. Akhiri sesi dengan duduk di rumput.",
+                "duration": "30-40 menit",
+                "intensity": "Sedang",
+                "touch_grass": "Istirahat dan duduk akhir di rumput.",
+                "motivation": "Roda dan rumput — seimbangkan keduanya."
+            },
+            {
+                "title": "Jalan Trail / Hiking Ringan",
+                "sport": ["hiking", "trail", "jalan kaki", "walking"],
+                "steps": "1. Pilih jalur trail atau jalan alam lokal.\n2. Jalan/hiking selama 40-50 menit.\n3. Berhenti di 3 titik untuk menyentuh pohon, batu, atau rumput dan tarik napas dalam.\n4. Akhiri dengan 1 menit rasa syukur di rumput.",
+                "duration": "45-55 menit",
+                "intensity": "Sedang",
+                "touch_grass": "Sentuh alam minimal 3x + rasa syukur di akhir.",
+                "motivation": "Trail adalah terapi. Ikat sepatu dan berangkat."
             }
         ],
         "advanced": [
             {
                 "title": "Long Run + Nature Connection",
-                "sport": ["lari", "running"],
+                "sport": ["lari", "running", "trail running"],
                 "steps": "1. Lari 7-10 km di rute outdoor (taman, trail, atau jalanan hijau).\n2. Setiap 2 km, berhenti 30 detik, sentuh rumput/tanah, dan lakukan 10 deep squat.\n3. Di 2 km terakhir, tingkatkan pace.\n4. Setelah selesai, barefoot walk 5 menit di rumput jika memungkinkan.",
                 "duration": "50-75 menit",
                 "intensity": "Tinggi",
@@ -197,6 +359,42 @@ CHALLENGES = {
                 "intensity": "Tinggi",
                 "touch_grass": "Push-up di rumput + cool down di rumput.",
                 "motivation": "Lapangan adalah rumah kedua. Main seolah tidak ada hari esok."
+            },
+            {
+                "title": "Renang Outdoor",
+                "sport": ["renang", "swimming", "open water"],
+                "steps": "1. Pergi ke kolam outdoor, danau, atau perairan aman.\n2. Berenang terus-menerus atau interval selama 30-45 menit.\n3. Setelah berenang, jalan kaki tanpa sepatu di rumput/pasir selama 5 menit jika memungkinkan.\n4. Stretching dan sentuh tanah/rumput saat cool down.",
+                "duration": "40-55 menit",
+                "intensity": "Tinggi",
+                "touch_grass": "Jalan kaki tanpa sepatu + kontak tanah setelah berenang.",
+                "motivation": "Air + bumi. Kombinasi sempurna. Loncat masuk!"
+            },
+            {
+                "title": "Panjat Tebing / Bouldering Outdoor",
+                "sport": ["panjat tebing", "climbing", "bouldering", "rock climbing"],
+                "steps": "1. Pergi ke dinding panjat outdoor atau area boulder alami.\n2. Panjat selama 40-60 menit (fokus teknik dan percobaan).\n3. Antar panjatan, berdiri di rumput/tanah, sentuh, dan goyang-goyangkan badan.\n4. Akhiri dengan duduk di tanah dan refleksi hasil panjatanmu.",
+                "duration": "45-65 menit",
+                "intensity": "Tinggi",
+                "touch_grass": "Kontak tanah antar panjatan + duduk di akhir.",
+                "motivation": "Gravitasi adalah coach terbaik. Naik ke atas."
+            },
+            {
+                "title": "Parkour / Movement Flow",
+                "sport": ["parkour", "freerunning", "movement"],
+                "steps": "1. Cari taman atau area outdoor dengan rintangan.\n2. Latihan vault, precision jump, roll, dan flow selama 35-50 menit.\n3. Hubungkan gerakan dan gunakan area rumput untuk landing yang lembut.\n4. Akhiri dengan mobility work sambil duduk/berbaring di rumput.",
+                "duration": "40-55 menit",
+                "intensity": "Tinggi",
+                "touch_grass": "Landing lembut dan mobility akhir di rumput.",
+                "motivation": "Bergerak seperti air. Lingkungan adalah playground-mu."
+            },
+            {
+                "title": "Beladiri / Shadow Boxing Outdoor",
+                "sport": ["beladiri", "martial arts", "boxing", "muay thai", "kickboxing", "shadow boxing"],
+                "steps": "1. Cari area rumput atau taman terbuka.\n2. Lakukan 5-6 ronde shadow boxing / technical drill (3 menit on, 1 menit rest).\n3. Saat istirahat, jalan di rumput dan sentuh tanah.\n4. Akhiri dengan core work dan stretching di rumput.",
+                "duration": "35-45 menit",
+                "intensity": "Tinggi",
+                "touch_grass": "Periode istirahat dan kerja akhir di rumput.",
+                "motivation": "Latihan di bawah langit. Semangatmu semakin tajam di luar."
             }
         ]
     }
