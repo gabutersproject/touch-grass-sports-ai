@@ -15,6 +15,18 @@ No internet needed after setup. Full privacy. Open source.
 
 ---
 
+## 📸 Demo
+
+### Web UI
+
+![Web UI](screenshots/Web.jpg)
+
+### CLI
+
+![CLI Output](screenshots/CLI.jpg)
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
@@ -193,6 +205,7 @@ touch-grass-sports-ai/
 ├── challenges_db.py       # Rule-based challenge database (multi-lang)
 ├── prompts.py             # System prompts & templates (multi-lang)
 ├── requirements.txt       # Python dependencies
+├── screenshots/           # Demo screenshots
 ├── LICENSE                # MIT License
 └── README.md              # This documentation
 ```
@@ -214,12 +227,11 @@ pydantic>=2.0.0
 Contributions are very welcome! Some ideas:
 
 - [ ] Daily progress & streak tracking
-- [ ] More sports (outdoor swimming, climbing, trail running, etc.)
+- [ ] More sports
 - [ ] Additional languages
 - [ ] Voice input / Text-to-Speech
 - [ ] Export challenges to Markdown / PDF / Calendar
 - [ ] Automatic "Daily Challenge" mode
-- [ ] Future integration with phone sensors (steps, GPS)
 
 **How to contribute:**
 1. Fork this repository
