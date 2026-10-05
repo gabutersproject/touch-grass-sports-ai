@@ -32,14 +32,17 @@ No internet needed after setup. Full privacy. Open source.
 
 ## 🎯 Challenge Examples
 
-**Beginner – Running**  
-> Easy 1–1.5 km jog in the park → 15 jumping jacks on the grass → touch the grass with both hands.
+**Beginner – Running / Yoga**  
+> Easy 1–1.5 km jog in the park → 15 jumping jacks on the grass → touch the grass with both hands.  
+> Or a gentle outdoor yoga flow ending with savasana on the grass.
 
-**Intermediate – Basketball**  
-> Play 20–30 minutes on outdoor court → 5 push-ups on the grass for every missed shot → cool down sitting on the grass.
+**Intermediate – Basketball / Cycling / Volleyball**  
+> Play 20–30 minutes on outdoor court → 5 push-ups on the grass for every missed shot.  
+> Or cycle 8–12 km with nature stops and squats on grass.
 
-**Advanced – Calisthenics**  
-> 5 rounds of HIIT on the grass field (burpees, jump squats, sprints, explosive push-ups) → mountain climber + plank finisher.
+**Advanced – Calisthenics / Swimming / Climbing / Parkour**  
+> 5 rounds of HIIT on the grass field → mountain climber + plank finisher.  
+> Or outdoor swimming + barefoot grass walk, or climbing session with ground contact.
 
 ---
 
@@ -109,7 +112,7 @@ python cli.py --level Intermediate --sport "running" --time "40 minutes" --lang 
 
 1. Select **Language** (English / Indonesian)
 2. Select **Fitness Level** (Beginner / Intermediate / Advanced)
-3. Enter your preferred **Sport** (running, basketball, calisthenics, cycling, football, hiking, etc.)
+3. Enter your preferred **Sport** (running, basketball, calisthenics, cycling, football, yoga, swimming, climbing, parkour, tennis, volleyball, skateboarding, martial arts, hiking, etc.)
 4. (Optional) Fill in available time, location, and extra notes
 5. Click **🚀 Generate Touch Grass Challenge**
 6. Go outside and complete it!
