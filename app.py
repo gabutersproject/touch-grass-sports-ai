@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Touch Grass Sports AI - Offline Open Source Challenge Generator
-Jalankan: python app.py
+Run: python app.py
 """
 
 import argparse
@@ -9,18 +9,19 @@ import gradio as gr
 from challenge_engine import generate_challenge, OLLAMA_AVAILABLE
 
 
-def create_challenge(level, sport, time_available, location, notes, use_ollama, model):
+def create_challenge(level, sport, time_available, location, notes, lang, use_ollama, model):
     if not level:
-        level = "Pemula"
+        level = "Beginner"
     if not sport:
-        sport = "umum"
-    
+        sport = "general"
+
     result = generate_challenge(
         level=level,
         sport=sport,
         time_available=time_available,
         location=location,
         notes=notes,
+        lang=lang,
         use_ollama=use_ollama,
         model=model
     )
@@ -41,87 +42,92 @@ def build_ui(force_rule_based: bool = False):
         gr.Markdown(
             """
             # 🌿 Touch Grass Sports AI
-            ### AI Offline yang memaksa kamu keluar rumah & berolahraga
+            ### Offline AI that forces you outside & get moving
             """,
             elem_classes=["main-title"]
         )
         gr.Markdown(
-            "*100% lokal • Open Source • Tidak perlu internet setelah setup*",
+            "*100% local • Open Source • No internet needed after setup*",
             elem_classes=["subtitle"]
         )
 
         with gr.Row():
             with gr.Column(scale=1):
+                lang = gr.Radio(
+                    choices=[("English", "en"), ("Bahasa Indonesia", "id")],
+                    value="en",
+                    label="Language / Bahasa"
+                )
                 level = gr.Radio(
-                    choices=["Pemula", "Intermediate", "Advanced"],
-                    value="Pemula",
-                    label="Level Kebugaran"
+                    choices=["Beginner", "Intermediate", "Advanced"],
+                    value="Beginner",
+                    label="Fitness Level"
                 )
                 sport = gr.Textbox(
-                    label="Olahraga / Preferensi",
-                    placeholder="Contoh: lari, basket, calisthenics, sepeda, sepakbola, hiking...",
-                    value="lari"
+                    label="Sport / Preference",
+                    placeholder="e.g. running, basketball, calisthenics, cycling, football, hiking...",
+                    value="running"
                 )
                 time_available = gr.Textbox(
-                    label="Waktu Tersedia",
-                    placeholder="Contoh: 30 menit, 1 jam, pagi hari..."
+                    label="Available Time",
+                    placeholder="e.g. 30 minutes, 1 hour, morning..."
                 )
                 location = gr.Textbox(
-                    label="Lokasi / Preferensi",
-                    placeholder="Contoh: taman dekat rumah, lapangan, trail..."
+                    label="Location / Preference",
+                    placeholder="e.g. nearby park, field, trail..."
                 )
                 notes = gr.Textbox(
-                    label="Catatan Tambahan",
-                    placeholder="Contoh: cedera lutut, hujan ringan, ingin fokus kaki...",
+                    label="Additional Notes",
+                    placeholder="e.g. knee injury, light rain, want full body focus...",
                     lines=2
                 )
 
-                with gr.Accordion("Pengaturan AI (Opsional)", open=False):
+                with gr.Accordion("AI Settings (Optional)", open=False):
                     use_ollama = gr.Checkbox(
-                        label="Gunakan Ollama (Local LLM)",
+                        label="Use Ollama (Local LLM)",
                         value=default_ollama,
                         interactive=OLLAMA_AVAILABLE and not force_rule_based
                     )
                     model = gr.Textbox(
-                        label="Nama Model Ollama",
+                        label="Ollama Model Name",
                         value="llama3.2",
                         placeholder="llama3.2 / phi3 / gemma2:2b / qwen2.5:3b"
                     )
                     if not OLLAMA_AVAILABLE:
-                        gr.Markdown("⚠️ Package `ollama` belum terinstall. Mode rule-based aktif.")
+                        gr.Markdown("⚠️ `ollama` package is not installed. Rule-based mode is active.")
                     elif force_rule_based:
-                        gr.Markdown("ℹ️ Mode rule-based dipaksa aktif (--rule-based).")
+                        gr.Markdown("ℹ️ Rule-based mode is forced (--rule-based).")
 
-                btn = gr.Button("🚀 Generate Tantangan Touch Grass", variant="primary", size="lg")
+                btn = gr.Button("🚀 Generate Touch Grass Challenge", variant="primary", size="lg")
 
             with gr.Column(scale=1):
-                output = gr.Markdown(label="Tantangan Kamu")
+                output = gr.Markdown(label="Your Challenge")
                 gr.Markdown("---")
                 gr.Markdown(
                     """
                     **Tips:**
-                    - Semakin spesifik inputmu, semakin bagus tantangannya
-                    - Kalau pakai Ollama, pastikan model sudah di-pull (`ollama pull llama3.2`)
-                    - Mode rule-based tetap bagus meski tanpa LLM
+                    - The more specific your input, the better the challenge
+                    - If using Ollama, make sure the model is pulled (`ollama pull llama3.2`)
+                    - Rule-based mode still works great without any LLM
                     """
                 )
 
         btn.click(
             fn=create_challenge,
-            inputs=[level, sport, time_available, location, notes, use_ollama, model],
+            inputs=[level, sport, time_available, location, notes, lang, use_ollama, model],
             outputs=output
         )
 
-        # Contoh cepat
         gr.Examples(
             examples=[
-                ["Pemula", "jalan kaki", "20 menit", "taman", "baru mulai olahraga"],
-                ["Intermediate", "lari", "40 menit", "lapangan", ""],
-                ["Advanced", "calisthenics", "35 menit", "rumput lapangan", "ingin full body"],
-                ["Intermediate", "basket", "1 jam", "lapangan outdoor", "main sendiri"],
+                ["Beginner", "walking", "20 minutes", "park", "just starting to exercise", "en"],
+                ["Intermediate", "running", "40 minutes", "field", "", "en"],
+                ["Advanced", "calisthenics", "35 minutes", "grass field", "full body focus", "en"],
+                ["Pemula", "jalan kaki", "20 menit", "taman", "baru mulai olahraga", "id"],
+                ["Intermediate", "lari", "40 menit", "lapangan", "", "id"],
             ],
-            inputs=[level, sport, time_available, location, notes],
-            label="Contoh Cepat"
+            inputs=[level, sport, time_available, location, notes, lang],
+            label="Quick Examples"
         )
 
     return demo
@@ -132,18 +138,18 @@ def main():
     parser.add_argument(
         "--rule-based",
         action="store_true",
-        help="Paksa mode rule-based (tanpa Ollama)"
+        help="Force rule-based mode (no Ollama)"
     )
     parser.add_argument(
         "--share",
         action="store_true",
-        help="Buat public Gradio link (butuh internet)"
+        help="Create a public Gradio link (requires internet)"
     )
     parser.add_argument(
         "--port",
         type=int,
         default=7860,
-        help="Port untuk server (default 7860)"
+        help="Server port (default 7860)"
     )
     args = parser.parse_args()
 
