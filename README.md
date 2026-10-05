@@ -1,5 +1,6 @@
 # 🌿 Touch Grass Sports AI
 
+**Open Source Offline AI** that pushes you outside through real sports challenges.  
 **Open Source Offline AI** yang mendorongmu keluar rumah lewat tantangan olahraga nyata.
 
 > "Stop scrolling. Touch grass. Move your body."
@@ -9,54 +10,57 @@
 [![Offline First](https://img.shields.io/badge/Offline-First-brightgreen.svg)](#)
 [![Ollama Compatible](https://img.shields.io/badge/Ollama-Compatible-orange.svg)](https://ollama.com)
 
+A **100% offline** local AI that generates personalized outdoor sports challenges.  
+No internet needed after setup. Full privacy. Open source.
+
 Aplikasi AI lokal **100% offline** yang menghasilkan tantangan olahraga outdoor personal.  
 Tidak butuh internet setelah setup. Privasi penuh. Open source.
 
 ---
 
-## ✨ Fitur Utama
+## ✨ Features / Fitur Utama
 
-| Fitur | Deskripsi |
-|-------|---------|
-| **100% Offline** | Berjalan lokal pakai Ollama atau mode rule-based tanpa model sama sekali |
-| **Tema Touch Grass** | Setiap tantangan wajib dilakukan di luar rumah + elemen menyentuh rumput/tanah/alam |
-| **Personalisasi** | Level kebugaran, jenis olahraga, waktu tersedia, lokasi, dan catatan khusus |
-| **Dua Interface** | Web UI modern (Gradio) + CLI ringan |
-| **Dua Engine** | Local LLM (Ollama) untuk tantangan kreatif, atau database rule-based yang cepat |
-| **Privasi Total** | Tidak ada data yang dikirim ke cloud |
-| **Open Source** | MIT License — bebas dipakai, dimodifikasi, dan dibagikan |
-
----
-
-## 🎯 Contoh Tantangan
-
-**Pemula – Lari**
-> Lari santai 1–1.5 km di taman → 15x jumping jack di rumput → sentuh rumput dengan kedua tangan.
-
-**Intermediate – Basket**
-> Main 20–30 menit di lapangan outdoor → setiap miss shoot lakukan 5 push-up di rumput → cool down duduk di rumput.
-
-**Advanced – Calisthenics**
-> 5 putaran HIIT di lapangan rumput (burpee, jump squat, sprint, explosive push-up) → finisher mountain climber + plank.
+| Feature / Fitur | Description (EN) | Deskripsi (ID) |
+|-----------------|------------------|----------------|
+| **100% Offline** | Runs locally with Ollama or pure rule-based mode | Berjalan lokal pakai Ollama atau mode rule-based tanpa model |
+| **Touch Grass Theme** | Every challenge must be done outdoors + includes touching grass/nature | Setiap tantangan wajib outdoor + elemen menyentuh rumput/alam |
+| **Personalization** | Fitness level, sport type, available time, location, notes | Level kebugaran, jenis olahraga, waktu, lokasi, catatan |
+| **Two Interfaces** | Modern Web UI (Gradio) + lightweight CLI | Web UI modern (Gradio) + CLI ringan |
+| **Two Engines** | Local LLM (Ollama) for creative challenges, or fast rule-based DB | Local LLM (Ollama) atau database rule-based yang cepat |
+| **Full Privacy** | No data is ever sent to the cloud | Tidak ada data yang dikirim ke cloud |
+| **Open Source** | MIT License — free to use, modify, and share | MIT License — bebas dipakai, dimodifikasi, dan dibagikan |
 
 ---
 
-## 🛠️ Persyaratan Sistem
+## 🎯 Challenge Examples / Contoh Tantangan
 
-- **Python** 3.9 atau lebih tinggi
-- **Ollama** (opsional, direkomendasikan untuk pengalaman terbaik)
-- Model lokal kecil (contoh):
-  - `llama3.2` (direkomendasikan)
+**Beginner – Running / Pemula – Lari**  
+> Easy 1–1.5 km jog in the park → 15 jumping jacks on the grass → touch the grass with both hands.
+
+**Intermediate – Basketball / Intermediate – Basket**  
+> Play 20–30 minutes on outdoor court → 5 push-ups on the grass for every missed shot → cool down sitting on the grass.
+
+**Advanced – Calisthenics / Advanced – Calisthenics**  
+> 5 rounds of HIIT on the grass field (burpees, jump squats, sprints, explosive push-ups) → mountain climber + plank finisher.
+
+---
+
+## 🛠️ System Requirements / Persyaratan Sistem
+
+- **Python** 3.9 or higher
+- **Ollama** (optional, recommended for best experience)
+- Small local models (examples):
+  - `llama3.2` (recommended)
   - `phi3`
   - `gemma2:2b`
   - `qwen2.5:3b`
-- RAM minimal: 4 GB (rule-based) / 8 GB+ (dengan model)
+- Minimum RAM: 4 GB (rule-based) / 8 GB+ (with model)
 
 ---
 
-## 🚀 Instalasi
+## 🚀 Installation / Instalasi
 
-### 1. Clone Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/gabutersproject/touch-grass-sports-ai.git
@@ -69,47 +73,47 @@ cd touch-grass-sports-ai
 pip install -r requirements.txt
 ```
 
-### 3. (Opsional) Install & Setup Ollama
+### 3. (Optional) Install & Setup Ollama
 
-1. Download Ollama dari [https://ollama.com](https://ollama.com)
-2. Pull model kecil:
+1. Download Ollama from [https://ollama.com](https://ollama.com)
+2. Pull a small model:
 
 ```bash
 ollama pull llama3.2
-# atau
+# or
 ollama pull phi3
 ollama pull gemma2:2b
 ```
 
-### 4. Jalankan Aplikasi
+### 4. Run the Application
 
-**Web UI (disarankan):**
+**Web UI (recommended):**
 ```bash
 python app.py
 ```
-Buka browser → `http://localhost:7860`
+Open your browser → `http://localhost:7860`
 
-**Mode Rule-based saja (tanpa Ollama):**
+**Rule-based only (no Ollama):**
 ```bash
 python app.py --rule-based
 ```
 
 **CLI:**
 ```bash
-python cli.py --level Intermediate --sport "lari" --time "40 menit"
+python cli.py --level Intermediate --sport "running" --time "40 minutes"
 ```
 
 ---
 
-## 📖 Cara Penggunaan
+## 📖 How to Use / Cara Penggunaan
 
 ### Web Interface
 
-1. Pilih **Level Kebugaran** (Pemula / Intermediate / Advanced)
-2. Isi **Olahraga / Preferensi** (contoh: lari, basket, calisthenics, sepeda, sepakbola, hiking)
-3. (Opsional) Isi waktu tersedia, lokasi, dan catatan tambahan
-4. Klik **🚀 Generate Tantangan Touch Grass**
-5. Kerjakan tantangan tersebut di luar rumah!
+1. Select **Fitness Level** (Beginner / Intermediate / Advanced)
+2. Enter your preferred **Sport** (running, basketball, calisthenics, cycling, football, hiking, etc.)
+3. (Optional) Fill in available time, location, and extra notes
+4. Click **🚀 Generate Touch Grass Challenge**
+5. Go outside and complete it!
 
 ### Command Line
 
@@ -117,65 +121,70 @@ python cli.py --level Intermediate --sport "lari" --time "40 menit"
 python cli.py \
   --level Advanced \
   --sport "calisthenics" \
-  --time "35 menit" \
-  --location "lapangan rumput" \
-  --notes "fokus full body" \
+  --time "35 minutes" \
+  --location "grass field" \
+  --notes "full body focus" \
   --model llama3.2
 ```
 
-**Argumen yang tersedia:**
+**Available arguments:**
 
-| Argumen | Default | Keterangan |
-|---------|---------|----------|
+| Argument | Default | Description |
+|----------|---------|-------------|
 | `--level` | Pemula | Pemula / Intermediate / Advanced |
-| `--sport` | umum | Jenis olahraga |
-| `--time` | - | Waktu yang tersedia |
-| `--location` | - | Preferensi lokasi |
-| `--notes` | - | Catatan tambahan |
-| `--rule-based` | false | Paksa mode tanpa LLM |
-| `--model` | llama3.2 | Nama model Ollama |
+| `--sport` | umum | Preferred sport |
+| `--time` | - | Available time |
+| `--location` | - | Preferred location |
+| `--notes` | - | Additional notes |
+| `--rule-based` | false | Force rule-based mode (no LLM) |
+| `--model` | llama3.2 | Ollama model name |
 
 ---
 
-## 🧠 Cara Kerja
+## 🧠 How It Works / Cara Kerja
 
 ```
 User Input
     ↓
-Challenge Engine
-  1. Cek Ollama tersedia?
-  2. Ya → Generate dengan Local LLM + Prompt
-  3. Tidak / Gagal → Rule-based Database
+┌─────────────────────────────┐
+│     Challenge Engine        │
+├─────────────────────────────┤
+│  1. Is Ollama available?    │
+│  2. Yes → Generate with     │
+│         Local LLM + Prompt  │
+│  3. No / Failed →           │
+│         Rule-based Database │
+└─────────────────────────────┘
     ↓
-Tantangan Outdoor + Touch Grass Moment
+Outdoor Challenge + Touch Grass Moment
 ```
 
-**System Prompt** dirancang ketat agar AI:
-- Selalu menghasilkan aktivitas **outdoor**
-- Menyertakan momen "sentuh rumput / tanah / alam"
-- Realistis dan aman sesuai level
-- Memberikan estimasi waktu + intensitas
-- Memberikan motivasi yang supportive tapi tegas
+The **System Prompt** is strictly designed so the AI:
+- Always generates **outdoor** activities
+- Includes a "touch grass / soil / nature" moment
+- Stays realistic and safe for the user's level
+- Provides time estimate + intensity
+- Gives supportive but firm motivation
 
 ---
 
-## 📁 Struktur Project
+## 📁 Project Structure / Struktur Project
 
 ```
 touch-grass-sports-ai/
 ├── app.py                 # Web UI (Gradio)
 ├── cli.py                 # Command Line Interface
-├── challenge_engine.py    # Logic utama generate tantangan
-├── challenges_db.py       # Database tantangan rule-based
-├── prompts.py             # System prompt & template
-├── requirements.txt       # Dependensi Python
+├── challenge_engine.py    # Main challenge generation logic
+├── challenges_db.py       # Rule-based challenge database
+├── prompts.py             # System prompt & templates
+├── requirements.txt       # Python dependencies
 ├── LICENSE                # MIT License
-└── README.md              # Dokumentasi ini
+└── README.md              # This documentation
 ```
 
 ---
 
-## 🧩 Dependensi
+## 🧩 Dependencies
 
 ```txt
 gradio>=4.0.0
@@ -185,41 +194,41 @@ pydantic>=2.0.0
 
 ---
 
-## 🤝 Kontribusi
+## 🤝 Contributing / Kontribusi
 
-Kontribusi sangat diterima! Beberapa ide yang bisa dikerjakan:
+Contributions are very welcome! Some ideas:
 
-- [ ] Tracking progress & streak harian
-- [ ] Lebih banyak olahraga (renang outdoor, climbing, trail running, dll)
-- [ ] Multi-bahasa (English, dll)
+- [ ] Daily progress & streak tracking
+- [ ] More sports (outdoor swimming, climbing, trail running, etc.)
+- [ ] Multi-language support
 - [ ] Voice input / Text-to-Speech
-- [ ] Export tantangan ke Markdown / PDF / Calendar
-- [ ] Mode "Daily Challenge" otomatis
-- [ ] Integrasi dengan sensor HP (langkah, GPS) di masa depan
+- [ ] Export challenges to Markdown / PDF / Calendar
+- [ ] Automatic "Daily Challenge" mode
+- [ ] Future integration with phone sensors (steps, GPS)
 
-**Cara kontribusi:**
-1. Fork repository ini
-2. Buat branch baru (`git checkout -b fitur-keren`)
-3. Commit perubahanmu
-4. Push dan buat Pull Request
+**How to contribute:**
+1. Fork this repository
+2. Create a new branch (`git checkout -b cool-feature`)
+3. Commit your changes
+4. Push and open a Pull Request
 
 ---
 
 ## 📜 License
 
-Proyek ini dilisensikan di bawah **MIT License**.  
-Lihat file [LICENSE](LICENSE) untuk detail lengkap.
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for full details.
 
 ---
 
-## 💡 Filosofi
+## 💡 Philosophy / Filosofi
 
-Dibuat untuk orang-orang yang:
+Made for people who:
 
-- Capek doomscrolling
-- Ingin lebih banyak bergerak di dunia nyata
-- Suka olahraga tapi sering males keluar rumah
-- Percaya bahwa "touch grass" adalah obat terbaik untuk otak yang terlalu online
+- Are tired of doomscrolling
+- Want to move more in the real world
+- Love sports but often feel lazy to go outside
+- Believe that "touch grass" is the best medicine for an over-online brain
 
 **Stop scrolling. Touch grass. Move your body.** 🏃‍♂️🌿
 
