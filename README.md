@@ -1,4 +1,16 @@
-# 🌿 Touch Grass Sports AI
+# Hacktoberfest Open-Source AI Challenge — Week 1
+
+**This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 1: Touch Grass](https://dev.to/challenges/hacktoberfest-week1-2026-10-05)**
+
+- **Project:** Touch Grass
+- **Tagline:** Build Something with Open-Source AI at Its Core.
+- **Author:** [Amier Gabuters](https://github.com/gabutersproject) (`gabutersproject`)
+- **Challenge window:** 5–11 October 2026
+- **Tags for the DEV post:** `#devchallenge` `#hf26challenge`
+
+---
+
+# Touch Grass Sports AI
 
 **Open Source Offline AI** that pushes you outside through real sports challenges.
 
@@ -15,7 +27,7 @@ No internet needed after setup. Full privacy. Open source.
 
 ---
 
-## 📸 Demo
+## Demo
 
 ### Web UI
 
@@ -27,7 +39,7 @@ No internet needed after setup. Full privacy. Open source.
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
@@ -42,7 +54,7 @@ No internet needed after setup. Full privacy. Open source.
 
 ---
 
-## 🎯 Challenge Examples
+## Challenge Examples
 
 **Beginner – Running / Yoga**  
 > Easy 1–1.5 km jog in the park → 15 jumping jacks on the grass → touch the grass with both hands.  
@@ -58,7 +70,7 @@ No internet needed after setup. Full privacy. Open source.
 
 ---
 
-## 🛠️ System Requirements
+## System Requirements
 
 - **Python** 3.9 or higher
 - **Ollama** (optional, recommended for best experience)
@@ -71,7 +83,7 @@ No internet needed after setup. Full privacy. Open source.
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### 1. Clone the Repository
 
@@ -118,7 +130,7 @@ python cli.py --level Intermediate --sport "running" --time "40 minutes" --lang 
 
 ---
 
-## 📖 How to Use
+## How to Use
 
 ### Web Interface
 
@@ -157,7 +169,7 @@ python cli.py \
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 ```
 User Input (+ Language)
@@ -180,7 +192,7 @@ The **System Prompt** is strictly designed so the AI:
 
 ---
 
-## 🌐 Multi-language Support
+## Multi-language Support
 
 Currently supported:
 - 🇬🇧 **English** (`en`)
@@ -195,7 +207,7 @@ Adding a new language is straightforward — just extend the dictionaries in `pr
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 touch-grass-sports-ai/
@@ -212,7 +224,7 @@ touch-grass-sports-ai/
 
 ---
 
-## 🧩 Dependencies
+## Dependencies
 
 ```txt
 gradio>=4.0.0
@@ -222,33 +234,7 @@ pydantic>=2.0.0
 
 ---
 
-## 🤝 Contributing
-
-Contributions are very welcome! Some ideas:
-
-- [ ] Daily progress & streak tracking
-- [ ] More sports
-- [ ] Additional languages
-- [ ] Voice input / Text-to-Speech
-- [ ] Export challenges to Markdown / PDF / Calendar
-- [ ] Automatic "Daily Challenge" mode
-
-**How to contribute:**
-1. Fork this repository
-2. Create a new branch (`git checkout -b cool-feature`)
-3. Commit your changes
-4. Push and open a Pull Request
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for full details.
-
----
-
-## 💡 Philosophy
+## Philosophy
 
 Made for people who:
 
@@ -261,4 +247,10 @@ Made for people who:
 
 ---
 
+## License
+
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for full details.
+
+---
 Made with 💚 for the outdoor movement.
